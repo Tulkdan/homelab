@@ -1,0 +1,76 @@
+- name: News
+  width: slim
+  columns:
+    - size: small
+      widgets:
+        - type: weather
+          location: Campinas, Brazil
+
+        - type: rss
+          limit: 20
+          collapse-after: 10
+          cache: 3h
+          feeds:
+            - url: https://stackoverflow.blog/feed/
+              title: Stack Overflow
+            - url: https://buttondown.email/cassidoo/rss
+              title: Cassidoo
+            - url: https://github.com/readme.rss
+              title: The ReadME Project
+            - url: https://kerkour.com/feed.xml
+              title: Sylvian Kerkour
+            - url: https://blog.pico.sh/rss
+              title: Pico Team
+            - url: https://www.citationneeded.news/rss/
+              title: Citation Needed
+            - url: https://zapier.com/engine/rss/42968/thoughtbot-giant
+              title: ThoughtBot
+            - url: https://www.ntietz.com/atom.xml
+              title: Technically a blog
+            - url: https://jvns.ca/atom.xml
+              title: Julia Evans
+            - url: https://newsletter.techworld-with-milan.com/feed
+              title: Tech World with Milan
+            - url: https://newsletter.systemdesignclassroom.com/feed
+              title: System Design Classroom
+            - url: https://strategizeyourcareer.com/feed
+              title: Strategize Your Career
+            - url: https://golangweekly.com/rss/
+              title: Golang weekly
+
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: hacker-news
+
+            - type: lobsters
+              sort-by: hot
+              tags:
+                - go
+                - security
+                - linux
+                - vim
+                - testing
+                - rust
+                - debugging
+                - performance
+                - release
+                - databases
+                - nix
+                - javascript
+                - nodejs
+                - gleam
+                - editors
+
+        - type: group
+          widgets:
+            - type: reddit
+              subreddit: selfhosted
+            - type: reddit
+              subreddit: unixporn
+            - type: reddit
+              subreddit: programming
+            - type: reddit
+              subreddit: linuxmemes
+              show-thumbnails: true

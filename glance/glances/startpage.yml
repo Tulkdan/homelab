@@ -1,0 +1,52 @@
+- name: Startpage
+  width: slim
+  center-vertically: true
+  columns:
+    - size: full
+      widgets:
+        - type: search
+          search-engine: duckduckgo
+          bangs:
+            - title: Youtube
+              shortcut: "!yt"
+              url: https://www.youtube.com/results?search_query={QUERY}
+            - title: Nix Packages
+              shortcut: "!np"
+              url: https://search.nixos.org/packages?type=packages&channel=unstable&query={QUERY}
+
+        - type: monitor
+          cache: 1m
+          title: Services
+          sites:
+            - title: Stump
+              url: https://stump.tulkdan.dev
+              icon: si:bookstack
+            - title: Wakatime
+              url: https://wakapi.tulkdan.dev
+              icon: si:wakatime
+            - title: Grafana
+              url: https://grafana.tulkdan.dev
+              icon: si:grafana
+            - title: Paisa
+              url: https://paisa.tulkdan.dev
+
+        - type: bookmarks
+          groups:
+            - title: General
+              links:
+                - title: Gmail
+                  url: https://mail.google.com/mail/u/0/
+                - title: Proton mail
+                  url: https://mail.proton.me
+                - title: Github
+                  url: https://github.com/
+            - title: Social
+              links:
+                - title: Reddit
+                  url: https://www.reddit.com/
+                - title: Bluesky
+                  url: https://bsky.app
+                - title: Instagram
+                  url: https://www.instagram.com/
+                - title: Mastodon
+                  url: https://phany.social

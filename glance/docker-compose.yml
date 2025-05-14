@@ -1,0 +1,15 @@
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    volumes:
+      - ./glances:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - glance-network
+
+networks:
+  glance-network:
+    name: proxy-network
+    external: true

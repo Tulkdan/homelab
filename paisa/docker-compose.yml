@@ -1,0 +1,17 @@
+services:
+  paisa:
+    image: ananthakumaran/paisa:v0.7.3-hledger
+    container_name: paisa
+    restart: unless-stopped
+    volumes:
+      - ./data/:/root/Documents/paisa/
+    labels:
+      glance.name: Paisa
+      glance.url: https://paisa.tulkdan.dev
+    networks:
+      - paisa-network
+
+networks:
+  paisa-network:
+    name: proxy-network
+    external: true

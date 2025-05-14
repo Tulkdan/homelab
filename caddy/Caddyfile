@@ -1,0 +1,49 @@
+(cloudflare) {
+  tls {
+    dns cloudflare
+  }
+}
+
+stump.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy stump:10801
+}
+
+grafana.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy monitoring-grafana:3000
+}
+
+glance.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy glance:8080
+}
+
+git.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy soft-serve:23232
+}
+
+wakapi.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy wakapi:3000
+}
+
+paisa.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy paisa:7500
+}
+
+*.tulkdan.dev {
+  import cloudflare
+
+  handle {
+    abort
+  }
+}

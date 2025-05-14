@@ -1,0 +1,28 @@
+services:
+  soft-serve:
+    image: charmcli/soft-serve:latest
+    container_name: soft-serve
+    volumes:
+      - ./data:/soft-serve
+    ports:
+      - 23231:23231
+      - 9418:9418
+    environment:
+      SOFT_SERVE_INITIAL_ADMIN_KEYS: /run/secrets/admin_key
+    restart: unless-stopped
+    networks:
+      - soft-serve-network
+    labels:
+      glance.name: Soft Serve
+      glance.icon: si:git
+    secrets:
+      - admin_key
+
+networks:
+  soft-serve-network:
+    name: proxy-network
+    external: true
+
+secrets:
+  admin_key:
+    file: ./admin_key.txt

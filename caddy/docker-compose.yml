@@ -1,0 +1,26 @@
+services:
+  caddy:
+    build: .
+    restart: unless-stopped
+    container_name: caddy
+    hostname: caddy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    networks:
+      - proxy-network
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./data:/data
+      - ./config:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      glance.name: Caddy
+      glance.icon: si:caddy
+
+networks:
+  proxy-network:
+    name: proxy-network
+    attachable: true
+    driver: bridge

@@ -1,0 +1,36 @@
+services:
+  wakapi:
+    image: ghcr.io/muety/wakapi:latest
+    init: true
+    container_name: wakapi
+    restart: unless-stopped
+    environment:
+      WAKAPI_PASSWORD_SALT_FILE: "/run/secrets/password_salt"   # alternatively, set WAKAPI_PASSWORD_SALT directly without the use of secrets
+    secrets:
+      - source: password_salt
+        target: password_salt
+        uid: '1000'
+        gid: '1000'
+        mode: '0400'
+    volumes:
+      - wakapi-data:/data
+    labels:
+      glance.name: Wakatime
+      glance.icon: si:wakatime
+      glance.url: https://wakapi.tulkdan.dev
+    networks:
+      - wakapi-network
+
+# secrets can be defined either from a local file or from an environment variable defined on the client host (the one that runs `docker compose` command)
+# see https://docs.docker.com/compose/how-tos/use-secrets/ for details
+secrets:
+  password_salt:
+    file: password_salt.txt
+
+volumes:
+  wakapi-data:
+
+networks:
+  wakapi-network:
+    name: proxy-network
+    external: true
