@@ -30,6 +30,19 @@
             - title: Paisa
               url: https://paisa.tulkdan.dev
 
+        - type: markets
+          markets:
+            - symbol: ^BVSP
+              name: IBOVESPA
+            - symbol: MGLU3.SA
+              name: MGLU3
+            - symbol: ITUB4.SA
+              name: ITUB4
+            - symbol: BBAS3.SA
+              name: BBAS
+            - symbol: NU
+              name: Nubank
+
         - type: bookmarks
           groups:
             - title: General
