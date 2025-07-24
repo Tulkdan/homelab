@@ -21,14 +21,11 @@
             - title: Stump
               url: https://stump.tulkdan.dev
               icon: si:bookstack
-            - title: Wakatime
-              url: https://wakapi.tulkdan.dev
-              icon: si:wakatime
-            - title: Grafana
-              url: https://grafana.tulkdan.dev
-              icon: si:grafana
             - title: Paisa
               url: https://paisa.tulkdan.dev
+            - title: AdGuard
+              url: https://adguard.tulkdan.dev
+              icon: si:adguard
 
         - type: markets
           markets:

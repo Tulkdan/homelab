@@ -10,12 +10,6 @@ stump.tulkdan.dev {
   reverse_proxy stump:10801
 }
 
-grafana.tulkdan.dev {
-  import cloudflare
-
-  reverse_proxy monitoring-grafana:3000
-}
-
 glance.tulkdan.dev {
   import cloudflare
 
@@ -28,16 +22,16 @@ git.tulkdan.dev {
   reverse_proxy soft-serve:23232
 }
 
-wakapi.tulkdan.dev {
-  import cloudflare
-
-  reverse_proxy wakapi:3000
-}
-
 paisa.tulkdan.dev {
   import cloudflare
 
   reverse_proxy paisa:7500
+}
+
+adguard.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy 192.168.0.13:150
 }
 
 *.tulkdan.dev {

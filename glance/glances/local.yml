@@ -9,7 +9,7 @@
           widgets:
           - type: dns-stats
             service: adguard
-            url: http://192.168.0.13:150
+            url: https://adguard.tulkdan.dev
             username: tulkdan
             password:
 
