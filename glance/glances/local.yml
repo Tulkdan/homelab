@@ -3,7 +3,19 @@
   columns:
     - size: full
       widgets:
-        - type: docker-containers
+        - type: split-column
+          widgets:
+          - type: docker-containers
+
+          - type: releases
+            show-source-icon: true
+            repositories:
+              - glanceapp/glance
+              - ananthakumaran/paisa
+              - charmbracelet/soft-serve
+              - stumpapp/stump
+              - caddyserver/caddy
+              - AdguardTeam/AdGuardHome
 
         - type: split-column
           widgets:
