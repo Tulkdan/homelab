@@ -1,0 +1,18 @@
+services:
+  couchdb-obsidian-livesync:
+    container_name: obsidian-livesync
+    image: couchdb:3.5.0
+    restart: unless-stopped
+    environment:
+      - COUCHDB_USER=obsidian_user
+    volumes:
+      - /external-hd-backup/couchdb/obsidian/data:/opt/couchdb/data
+      - /external-hd-backup/couchdb/obsidian/local.d:/opt/couchdb/etc/local.d
+    networks:
+      - couchdb-network
+
+networks:
+  couchdb-network:
+    name: proxy-network
+    external: true
+
