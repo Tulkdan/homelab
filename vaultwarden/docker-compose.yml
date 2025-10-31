@@ -1,0 +1,20 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    volumes:
+      - /external-hd-backup/vaultwarden-data/:/data/
+    environment:
+      DOMAIN: "https://vaultwarden.tulkdan.dev"
+    restart: unless-stopped
+    networks:
+      - vaultwarden-network
+    labels:
+      glance.name: Vaultwarden
+      glance.icon: si:vaultwarden
+      glance.url: https://vaultwarden.tulkdan.dev
+
+networks:
+  vaultwarden-network:
+    name: proxy-network
+    external: true

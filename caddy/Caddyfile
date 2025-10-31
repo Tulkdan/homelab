@@ -40,6 +40,12 @@ obsidian.tulkdan.dev {
   reverse_proxy obsidian-livesync:5984
 }
 
+vaultwarden.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy vaultwarden:80
+}
+
 *.tulkdan.dev {
   import cloudflare
 

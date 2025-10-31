@@ -26,6 +26,9 @@
             - title: AdGuard
               url: https://adguard.tulkdan.dev
               icon: si:adguard
+            - title: Vaultwarden
+              url: https://vaultwarden.tulkdan.dev
+              icon: si:vaultwarden
 
         - type: markets
           markets:
