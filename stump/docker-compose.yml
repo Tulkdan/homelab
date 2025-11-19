@@ -1,6 +1,6 @@
 services:
   stump:
-    image: aaronleopold/stump:latest
+    image: aaronleopold/stump:0.0.12
     container_name: stump
     volumes:
       - /home/pedro-correa/.stump:/config
@@ -8,6 +8,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+    ports:
+      - 10801:10801
     restart: unless-stopped
     networks:
       - stump-network
