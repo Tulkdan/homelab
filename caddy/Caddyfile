@@ -46,6 +46,12 @@ vaultwarden.tulkdan.dev {
   reverse_proxy vaultwarden:80
 }
 
+cook.tulkdan.dev {
+  import cloudflare
+
+  reverse_proxy cooklang:9080
+}
+
 *.tulkdan.dev {
   import cloudflare
 

@@ -1,0 +1,14 @@
+services:
+  cooklang:
+    build: .
+    container_name: cooklang
+    volumes:
+      - ./recipes:/recipes
+    restart: unless-stopped
+    networks:
+      - cooklang-network
+
+networks:
+  cooklang-network:
+    name: proxy-network
+    external: true
