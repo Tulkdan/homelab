@@ -29,6 +29,8 @@
             - title: Vaultwarden
               url: https://vaultwarden.tulkdan.dev
               icon: si:vaultwarden
+            - title: Cooklang
+              url: https://cook.tulkdan.dev
 
         - type: markets
           markets:
