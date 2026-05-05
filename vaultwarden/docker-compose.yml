@@ -3,7 +3,7 @@ services:
     image: vaultwarden/server:latest
     container_name: vaultwarden
     volumes:
-      - /external-hd-backup/vaultwarden-data/:/data/
+      - /media/external-hd-backup/vaultwarden-data/data/:/data/
     environment:
       DOMAIN: "https://vaultwarden.tulkdan.dev"
     restart: unless-stopped

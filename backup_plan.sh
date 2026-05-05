@@ -8,8 +8,10 @@
 set -e
 set -o pipefail
 
+DIR_ROOT=/media/external-hd-backup
+
 # Configuration
-BORG_REPO=/external-hd-backup/borgbackup
+BORG_REPO=$DIR_ROOT/borgbackup
 export BORG_PASSPHRASE=$(cat /root/.borg_passphrase)
 
 RCLONE_REMOTE="Google drive"
@@ -17,8 +19,8 @@ RCLONE_DESTINATION="rasp"
 
 TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
 
-SOFT_SERVE_DIR=/external-hd-backup/soft-serve/
-VAULTWARDEN_DIR=/external-hd-backup/vaultwarden-data/
+SOFT_SERVE_DIR=$DIR_ROOT/soft-serve/
+VAULTWARDEN_DIR=$DIR_ROOT/vaultwarden-data/
 
 log() {
   echo "$(date "+%Y-%m-%d %H:%M:%S") - $1"
@@ -44,8 +46,23 @@ borg create --stats --progress \
   "$VAULTWARDEN_DIR"
 log "Borg backup created: $BORG_VAULTWARDEN_NAME"
 
-# 3. Sync borg repository to the rclone remote
-log "Step 3: Syncing repository to rclone remote..."
+# 3. Prune repository
+log "Step 3: Prunning to maintain 4 weekly and 6 monthly..."
+borg prune         \
+  --list           \
+  --show-rc        \
+  --keep-weekly 4  \
+  --keep-monthly 6 \
+  $BORG_REPO
+log "Prunning complete"
+
+# 4. Prune repository
+log "Step 4: Compacting borg repo..."
+borg compact $BORG_REPO
+log "Compacting complete"
+
+# 5. Sync borg repository to the rclone remote
+log "Step 5: Syncing repository to rclone remote..."
 rclone sync "$BORG_REPO" "$RCLONE_REMOTE":$RCLONE_DESTINATION --progress
 log "Sync complete"
 

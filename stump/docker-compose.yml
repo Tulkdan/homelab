@@ -4,7 +4,7 @@ services:
     container_name: stump
     volumes:
       - /home/pedro-correa/.stump:/config
-      - /external-hd-backup/stump/books:/data
+      - /media/external-hd-backup/stump/books:/data
     environment:
       - PUID=1000
       - PGID=1000

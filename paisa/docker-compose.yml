@@ -4,7 +4,7 @@ services:
     container_name: paisa
     restart: unless-stopped
     volumes:
-      - /external-hd-backup/paisa/data/:/root/Documents/paisa/
+      - /media/external-hd-backup/paisa/data/:/root/Documents/paisa/
     labels:
       glance.name: Paisa
       glance.url: https://paisa.tulkdan.dev
