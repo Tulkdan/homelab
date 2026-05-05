@@ -11,8 +11,6 @@
           collapse-after: 10
           cache: 3h
           feeds:
-            - url: https://stackoverflow.blog/feed/
-              title: Stack Overflow
             - url: https://buttondown.email/cassidoo/rss
               title: Cassidoo
             - url: https://github.com/readme.rss
@@ -41,6 +39,8 @@
               title: Xe Iaso
             - url: https://newsletter.scalablethread.com/feed
               title: Scalable Thread
+            - url: https://gram.liten.app/rss.xml
+              title: Gram blog
 
     - size: full
       widgets:
